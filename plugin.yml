@@ -1,0 +1,222 @@
+name: GadgetsMenu
+main: com.OnlyNoobDied.GadgetsMenu.GadgetsMenu
+version: 3.5.0
+auther: OnlyNoobDied, YapZhenYie
+description: Amazing hub perks for Donor.
+softdepend: [LibsDisguises]
+commands:
+  gcredits:
+    description: Credits command.
+    aliases: [gmenucredits, gadgetsmenucredits]
+    usage: /<command>
+  gpet:
+    description: Pet rename command.
+    aliases: [gmenupet, gadgetsmenupet]
+    usage: /<command>
+  menu:
+    description: GadgetsMenu Main command.
+    aliases: [gmenu, gadgetsmenu]
+    usage: /<command>
+  #mystery:
+  #  description: Mystery Box command.
+  #  aliases: [mysterybox]
+  #  usage: /<command>
+permissions:
+  gadgetsmenu.*:
+    default: op
+    description: Let a player to use all GadgetsMenu commands.
+    children:
+      gadgetsmenu.help:
+        description: Let a player to list commands.
+      gadgetsmenu.reload:
+        description: Let a player to reload configuration.
+      gadgetsmenu.version:
+        description: Let a player to check GadgetsMenu version.
+      gadgetsmenu.givemenu:
+        description: Let a player to give GadgetsMenu to player.
+      gadgetsmenu.checkupdate:
+        description: Let a player to check latest version.
+      gadgetsmenu.cooldown.bypass:
+        description: Let a player to bypass the cooldown timer.
+      gadgetsmenu.link:
+        description: Let a player to get the helpful link.
+      gadgetsmenu.admin:
+        description: Let a player to access admin settings.
+      gadgetsmenu.hats.*:
+        description: Let a player to use all Hats.
+        children:
+          - gadgetsmenu.hats.
+      gadgetsmenu.particles.*:
+        description: Let a player to use all Particles.
+        children:
+          - gadgetsmenu.particles.watersplash
+          - gadgetsmenu.particles.dripwater
+          - gadgetsmenu.particles.driplava
+          - gadgetsmenu.particles.crit
+          - gadgetsmenu.particles.magiccrit
+          - gadgetsmenu.particles.spell
+          - gadgetsmenu.particles.instantspell
+          - gadgetsmenu.particles.mobspell
+          - gadgetsmenu.particles.witchspell
+          - gadgetsmenu.particles.angryvillager
+          - gadgetsmenu.particles.happyvillager
+          - gadgetsmenu.particles.townaura
+          - gadgetsmenu.particles.note
+          - gadgetsmenu.particles.portal
+          - gadgetsmenu.particles.enchantment
+          - gadgetsmenu.particles.flame
+          - gadgetsmenu.particles.redstone
+          - gadgetsmenu.particles.heart
+          - gadgetsmenu.particles.fireworkspark
+          - gadgetsmenu.particles.smoke
+          - gadgetsmenu.particles.endrod
+          - gadgetsmenu.particles.dragonbreath
+          - gadgetsmenu.particles.damageindicator
+      gadgetsmenu.wardrobe.*:
+        description: Let a player to use all Wardrobe.
+        children:
+          - gadgetsmenu.wardrobe.aqua.helmet
+          - gadgetsmenu.wardrobe.black.helmet
+          - gadgetsmenu.wardrobe.blue.helmet
+          - gadgetsmenu.wardrobe.fuchsia.helmet
+          - gadgetsmenu.wardrobe.gray.helmet
+          - gadgetsmenu.wardrobe.green.helmet
+          - gadgetsmenu.wardrobe.lime.helmet
+          - gadgetsmenu.wardrobe.maroon.helmet
+          - gadgetsmenu.wardrobe.navy.helmet
+          - gadgetsmenu.wardrobe.olive.helmet
+          - gadgetsmenu.wardrobe.orange.helmet
+          - gadgetsmenu.wardrobe.purple.helmet
+          - gadgetsmenu.wardrobe.red.helmet
+          - gadgetsmenu.wardrobe.silver.helmet
+          - gadgetsmenu.wardrobe.teal.helmet
+          - gadgetsmenu.wardrobe.white.helmet
+          - gadgetsmenu.wardrobe.yellow.helmet
+          - gadgetsmenu.wardrobe.aqua.chestplate
+          - gadgetsmenu.wardrobe.black.chestplate
+          - gadgetsmenu.wardrobe.blue.chestplate
+          - gadgetsmenu.wardrobe.fuchsia.chestplate
+          - gadgetsmenu.wardrobe.gray.chestplate
+          - gadgetsmenu.wardrobe.green.chestplate
+          - gadgetsmenu.wardrobe.lime.chestplate
+          - gadgetsmenu.wardrobe.maroon.chestplate
+          - gadgetsmenu.wardrobe.navy.chestplate
+          - gadgetsmenu.wardrobe.olive.chestplate
+          - gadgetsmenu.wardrobe.orange.chestplate
+          - gadgetsmenu.wardrobe.purple.chestplate
+          - gadgetsmenu.wardrobe.red.chestplate
+          - gadgetsmenu.wardrobe.silver.chestplate
+          - gadgetsmenu.wardrobe.teal.chestplate
+          - gadgetsmenu.wardrobe.white.chestplate
+          - gadgetsmenu.wardrobe.yellow.chestplate
+          - gadgetsmenu.wardrobe.aqua.leggings
+          - gadgetsmenu.wardrobe.black.leggings
+          - gadgetsmenu.wardrobe.blue.leggings
+          - gadgetsmenu.wardrobe.fuchsia.leggings
+          - gadgetsmenu.wardrobe.gray.leggings
+          - gadgetsmenu.wardrobe.green.leggings
+          - gadgetsmenu.wardrobe.lime.leggings
+          - gadgetsmenu.wardrobe.maroon.leggings
+          - gadgetsmenu.wardrobe.navy.leggings
+          - gadgetsmenu.wardrobe.olive.leggings
+          - gadgetsmenu.wardrobe.orange.leggings
+          - gadgetsmenu.wardrobe.purple.leggings
+          - gadgetsmenu.wardrobe.red.leggings
+          - gadgetsmenu.wardrobe.silver.leggings
+          - gadgetsmenu.wardrobe.teal.leggings
+          - gadgetsmenu.wardrobe.white.leggings
+          - gadgetsmenu.wardrobe.yellow.leggings
+          - gadgetsmenu.wardrobe.aqua.boots
+          - gadgetsmenu.wardrobe.black.boots
+          - gadgetsmenu.wardrobe.blue.boots
+          - gadgetsmenu.wardrobe.fuchsia.boots
+          - gadgetsmenu.wardrobe.gray.boots
+          - gadgetsmenu.wardrobe.green.boots
+          - gadgetsmenu.wardrobe.lime.boots
+          - gadgetsmenu.wardrobe.maroon.boots
+          - gadgetsmenu.wardrobe.navy.boots
+          - gadgetsmenu.wardrobe.olive.boots
+          - gadgetsmenu.wardrobe.orange.boots
+          - gadgetsmenu.wardrobe.purple.boots
+          - gadgetsmenu.wardrobe.red.boots
+          - gadgetsmenu.wardrobe.silver.boots
+          - gadgetsmenu.wardrobe.teal.boots
+          - gadgetsmenu.wardrobe.white.boots
+          - gadgetsmenu.wardrobe.yellow.boots
+      gadgetsmenu.discoarmor.*:
+        description: Let a player to use all DiscoArmor.
+        children:
+          - gadgetsmenu.discoarmor.helmet
+          - gadgetsmenu.discoarmor.chestplate
+          - gadgetsmenu.discoarmor.leggings
+          - gadgetsmenu.discoarmor.boots
+      gadgetsmenu.gadgets.*:
+        description: Let a player to use all gadgets.
+        children:
+          - gadgetsmenu.gadgets.paintballgun
+          - gadgetsmenu.gadgets.explosivebow
+          - gadgetsmenu.gadgets.batlauncher
+          - gadgetsmenu.gadgets.letitsnow
+          - gadgetsmenu.gadgets.firetrail
+          - gadgetsmenu.gadgets.partypopper
+          - gadgetsmenu.gadgets.tntfountain
+          - gadgetsmenu.gadgets.teleportstick
+          - gadgetsmenu.gadgets.melonlauncher
+          - gadgetsmenu.gadgets.painttrail
+          - gadgetsmenu.gadgets.explodingsheep
+          - gadgetsmenu.gadgets.creeperastronaut
+          - gadgetsmenu.gadgets.ghosts
+          - gadgetsmenu.gadgets.poopbomb
+          - gadgetsmenu.gadgets.parachute
+          - gadgetsmenu.gadgets.discoball
+          - gadgetsmenu.gadgets.rocket
+          - gadgetsmenu.gadgets.goldfountain
+      gadgetsmenu.pets.*:
+        description: Let a player to use all Pets.
+        children:
+          - gadgetsmenu.pets.helmet
+      gadgetsmenu.morphs.*:
+        description: Let a player to use all Morphs.
+        children:
+          - gadgetsmenu.morphs.pig
+          - gadgetsmenu.morphs.cow
+          - gadgetsmenu.morphs.enderman
+          - gadgetsmenu.morphs.chicken
+          - gadgetsmenu.morphs.spider
+          - gadgetsmenu.morphs.sheep
+          - gadgetsmenu.morphs.skeleton
+          - gadgetsmenu.morphs.creeper
+          - gadgetsmenu.morphs.blaze
+          - gadgetsmenu.morphs.zombie
+          - gadgetsmenu.morphs.irongolem
+          - gadgetsmenu.morphs.witch
+          - gadgetsmenu.morphs.snowman
+          - gadgetsmenu.morphs.guardian
+      gadgetsmenu.banners.*:
+        description: Let a player to use all Banners.
+        children:
+          - gadgetsmenu.banners.snowbunny
+          - gadgetsmenu.banners.reindeer
+          - gadgetsmenu.banners.holidaytree
+          - gadgetsmenu.banners.santa
+          - gadgetsmenu.banners.holidaywreath
+          - gadgetsmenu.banners.heart
+      gadgetsmenu.emotes.*:
+        description: Let a player to use all Emotes.
+        children:
+          - gadgetsmenu.emotes.smile
+          - gadgetsmenu.emotes.cool
+          - gadgetsmenu.emotes.wink
+      gadgetsmenu.credits.*:
+        description: Let a player to use all credits commands.
+        children:
+          gadgetsmenu.credits.add:
+            description: Let a player to add the amount of credits.
+          gadgetsmenu.credits.current:
+            description: Let a player to check the credits.
+          gadgetsmenu.credits.pay:
+            description: Let a player to pay credits to another player.
+          gadgetsmenu.credits.remove:
+            description: Let a player to remove credits.
+          gadgetsmenu.credits.set:
+            description: Let a player to set the amount of credits.
