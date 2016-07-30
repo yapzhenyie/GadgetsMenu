@@ -17,10 +17,6 @@ commands:
     description: GadgetsMenu Main command.
     aliases: [gmenu, gadgetsmenu]
     usage: /<command>
-  #mystery:
-  #  description: Mystery Box command.
-  #  aliases: [mysterybox]
-  #  usage: /<command>
 permissions:
   gadgetsmenu.*:
     default: op
