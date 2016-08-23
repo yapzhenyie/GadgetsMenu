@@ -1,9 +1,10 @@
 name: GadgetsMenu
 main: com.OnlyNoobDied.GadgetsMenu.GadgetsMenu
-version: 3.5.0
+version: 3.5.0-SHAPSHOT-g1
 auther: OnlyNoobDied, YapZhenYie
-description: Amazing hub perks for Donor.
 softdepend: [LibsDisguises]
+description: Amazing hub perks for Donor.
+website: http://bit.ly/GadgetsMenu-wiki
 commands:
   menu:
     description: GadgetsMenu Main command.
@@ -16,13 +17,14 @@ permissions:
       - gadgetsmenu.commands.*
       - gadgetsmenu.hats.*
       - gadgetsmenu.particles.*
+      - gadgetsmenu.particletypes.*
       - gadgetsmenu.wardrobe.*
       - gadgetsmenu.discoarmor.*
       - gadgetsmenu.gadgets.*
-      - gadgetsmenu.emotes.*
-      - gadgetsmenu.banners.*
-      - gadgetsmenu.morphs.*
       - gadgetsmenu.pets.*
+      - gadgetsmenu.morphs.*
+      - gadgetsmenu.banners.*
+      - gadgetsmenu.emotes.*
   gadgetsmenu.commands.*:
     default: op
     description: Let a player to use all GadgetsMenu commands.
@@ -51,6 +53,7 @@ permissions:
     default: op
     description: Let a player to use all Particles.
     children:
+      - gadgetsmenu.particletypes.*
       - gadgetsmenu.particles.watersplash
       - gadgetsmenu.particles.dripwater
       - gadgetsmenu.particles.driplava
@@ -74,6 +77,16 @@ permissions:
       - gadgetsmenu.particles.endrod
       - gadgetsmenu.particles.dragonbreath
       - gadgetsmenu.particles.damageindicator
+  gadgetsmenu.particletypes.*:
+    default: op
+    description: Let a player to use all Particle Types.
+      - gadgetsmenu.particletypes.halo
+      - gadgetsmenu.particletypes.random
+      - gadgetsmenu.particletypes.feet
+      - gadgetsmenu.particletypes.circle
+      - gadgetsmenu.particletypes.star
+      - gadgetsmenu.particletypes.helix
+      - gadgetsmenu.particletypes.wings
   gadgetsmenu.wardrobe.*:
     default: op
     description: Let a player to use all Wardrobe.
