@@ -169,9 +169,6 @@ public class GadgetsMenu extends JavaPlugin {
 		cmdManager.registerCommand(new CommandReset());
 		cmdManager.registerCommand(new CommandWardrobe());
 		getCommand("menu").setTabCompleter(new AutoTabCompleter());
-		// getCommand("test").setExecutor(new MenuCommand());
-		// getCommand("mystery").setExecutor(new MysteryBoxCommand());
-		// getCommand("mystery").setTabCompleter(new MysteryBoxCommand());
 
 		// Cosmetics
 		MainMenuType.checkEnabled();
@@ -215,15 +212,6 @@ public class GadgetsMenu extends JavaPlugin {
 			registerListener(new BannerManager());
 		if (EmoteAPI.isEmotesEnabled())
 			registerListener(new EmoteManager());
-
-		/// registerListener(new AdminManager());//TODO
-		// registerListener(new HatEditManager());
-		// registerListener(new AdminSettingManager());
-
-		// Mystery Box
-		// registerListener(new MysteryBoxPreviewListener());
-		// registerListener(new MysteryBoxPlaceListener());
-		// registerListener(new MysteryBoxBreakListener());
 
 		// Purchase Cosmetics Menu
 		registerListener(new PurchaseManager());
