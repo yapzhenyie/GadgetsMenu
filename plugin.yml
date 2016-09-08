@@ -1,6 +1,6 @@
 name: GadgetsMenu
 main: com.OnlyNoobDied.GadgetsMenu.GadgetsMenu
-version: 3.5.5
+version: 3.5.7
 auther: OnlyNoobDied, YapZhenYie
 softdepend: [LibsDisguises]
 description: Amazing hub perks for Donor.
@@ -50,7 +50,6 @@ permissions:
       - gadgetsmenu.commands.paycredits
       - gadgetsmenu.commands.removecredits
       - gadgetsmenu.commands.setcredits
-      - gadgetsmenu.commands.givemenu
       - gadgetsmenu.commands.help
       - gadgetsmenu.commands.namepet
       - gadgetsmenu.commands.permission
