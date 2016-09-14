@@ -1,0 +1,7 @@
+items:
+  cant purchase: true/false
+menu:
+  able to move: true
+
+bug:
+ check (onlineplayers)
