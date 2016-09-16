@@ -1,5 +1,6 @@
 items:
   cant purchase: true/false
+  can be found: true
 menu:
   able to move: true
 
