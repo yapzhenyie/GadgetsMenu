@@ -11,3 +11,4 @@ bug:
  if(isDisabledWorlds) return;
  
  add more hats, included spain hat.
+ add auto downloader when minor update
