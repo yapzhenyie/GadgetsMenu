@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 import com.OnlyNoobDied.GadgetsMenu.GadgetsMenu;
+import com.OnlyNoobDied.GadgetsMenu.PlaceHolders;
 import com.OnlyNoobDied.GadgetsMenu.API.*;
 import com.OnlyNoobDied.GadgetsMenu.Metrics.Metrics.Plotter;
 
@@ -63,12 +64,25 @@ public class MetricsStarter implements Runnable {
 			if (EmoteAPI.isEmotesEnabled()) {
 				enabledGraph.addPlotter(new SimplePlotter("Emotes"));
 			}
+			if (CloakAPI.isCloaksEnabled()) {
+				enabledGraph.addPlotter(new SimplePlotter("Cloaks"));
+			}
 			final Metrics.Graph database = metrics.createGraph("Database");
 			database.addPlotter(new SimplePlotter("Total"));
 			if (MainAPI.isDatabaseEnabled()) {
 				database.addPlotter(new SimplePlotter("Enabled"));
 			} else {
 				database.addPlotter(new SimplePlotter("Disabled"));
+			}
+
+			final Metrics.Graph version = metrics.createGraph("GadgetsMenu_Version");
+			version.addPlotter(new SimplePlotter("Total"));
+			if (PlaceHolders.getPluginVersion().startsWith("3.5")) {
+				version.addPlotter(new SimplePlotter("3.5.0+"));
+			} else if (PlaceHolders.getPluginVersion().startsWith("3.6")) {
+				version.addPlotter(new SimplePlotter("3.6.0+"));
+			} else {
+				version.addPlotter(new SimplePlotter("Unknown"));
 			}
 			metrics.start();
 		} catch (Exception ex) {
