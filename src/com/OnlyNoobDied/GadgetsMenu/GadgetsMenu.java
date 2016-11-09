@@ -35,10 +35,10 @@ import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Gadgets.Types.Gadget;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Hats.*;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.MainMenu.*;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Morphs.*;
+import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Morphs.Skills.SlimeballListener;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Morphs.Types.*;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Particles.ParticleManager;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Particles.ParticleType;
-import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Particles.Types.ParticleTypesType;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Pets.PetManager;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Pets.PetType;
 import com.OnlyNoobDied.GadgetsMenu.Cosmetics.Pets.Types.PetEntityManager;
@@ -106,6 +106,7 @@ public class GadgetsMenu extends JavaPlugin {
 				return;
 			}
 			getConnection();
+			LoggerManager.info(MessageType.CONNECTED_TO_DATABASE.getFormatMessage());
 			Table.createTable();
 			Table.createMysteryBoxTable();
 		}
@@ -207,7 +208,6 @@ public class GadgetsMenu extends JavaPlugin {
 		MainMenuType.checkEnabled();
 		HatType.checkEnabled();
 		ParticleType.checkEnabled();
-		ParticleTypesType.checkEnabled();
 		GadgetType.checkEnabled();
 		PetType.checkEnabled();
 		PetEntityType.checkEnabled();
