@@ -26,12 +26,14 @@ public class SelectQuery {
 			ResultSet localResultSet = localStatement
 					.executeQuery("SELECT * FROM " + GadgetsMenu.MySQLName + " WHERE UUID= '" + this.uuid + "'");
 			if (localResultSet.next()) {
-				data = localResultSet.getString(key);
+				if (!localResultSet.getString(key).equals("none"))
+					data = localResultSet.getString(key);
 			} else {
 				new PlayerManager(this.uuid).registerToDatabase();
 			}
 		} catch (SQLException e) {
-			new LoggerManager().consoleMessage(MessageType.FAILED_TO_GET_DATA.getFormatMessage());
+			new LoggerManager();
+			LoggerManager.consoleMessage(MessageType.FAILED_TO_GET_DATA.getFormatMessage());
 			e.printStackTrace();
 		}
 		return data;

@@ -24,7 +24,8 @@ public class UpdateQuery {
 			localStatement.executeUpdate("UPDATE " + GadgetsMenu.MySQLName + " SET " + key + "= '" + value
 					+ "' WHERE UUID='" + this.uuid + "'");
 		} catch (SQLException e) {
-			new LoggerManager().consoleMessage(MessageType.FAILED_TO_GET_DATA.getFormatMessage());
+			new LoggerManager();
+			LoggerManager.consoleMessage(MessageType.FAILED_TO_GET_DATA.getFormatMessage());
 			e.printStackTrace();
 		}
 	}

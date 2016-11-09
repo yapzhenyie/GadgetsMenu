@@ -6,9 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 import com.OnlyNoobDied.GadgetsMenu.GadgetsMenu;
-import com.OnlyNoobDied.GadgetsMenu.PlaceHolders;
 import com.OnlyNoobDied.GadgetsMenu.API.*;
 import com.OnlyNoobDied.GadgetsMenu.Metrics.Metrics.Plotter;
+import com.OnlyNoobDied.GadgetsMenu.Utils.VersionManager;
 
 public class MetricsStarter implements Runnable {
 
@@ -43,19 +43,13 @@ public class MetricsStarter implements Runnable {
 			if (ParticleAPI.isParticlesEnabled()) {
 				enabledGraph.addPlotter(new SimplePlotter("Particles"));
 			}
-			if (WardrobeAPI.isWardrobeEnabled()) {
-				enabledGraph.addPlotter(new SimplePlotter("Wardrobe"));
-			}
-			if (DiscoArmorAPI.isDiscoArmorEnabled()) {
-				enabledGraph.addPlotter(new SimplePlotter("DiscoArmor"));
-			}
 			if (GadgetAPI.isGadgetsEnabled()) {
 				enabledGraph.addPlotter(new SimplePlotter("Gadgets"));
 			}
 			if (PetAPI.isPetsEnabled()) {
 				enabledGraph.addPlotter(new SimplePlotter("Pets"));
 			}
-			if (MorphAPI.isMorphsEnabled()) {
+			if (MorphAPI.isMorphsEnabled() && MorphAPI.isLibDisguisesHooked() && VersionManager.is1_9OrAbove()) {
 				enabledGraph.addPlotter(new SimplePlotter("Morphs"));
 			}
 			if (BannerAPI.isBannersEnabled()) {
@@ -74,19 +68,19 @@ public class MetricsStarter implements Runnable {
 			} else {
 				database.addPlotter(new SimplePlotter("Disabled"));
 			}
-
-			final Metrics.Graph version = metrics.createGraph("GadgetsMenu_Version");
+			database.addPlotter(new SimplePlotter("Test"));
+			final Metrics.Graph version = metrics.createGraph("EnabledFeatures");
 			version.addPlotter(new SimplePlotter("Total"));
-			if (PlaceHolders.getPluginVersion().startsWith("3.5")) {
+			/*if (PlaceHolders.getPluginVersion().startsWith("3.5")) {
 				version.addPlotter(new SimplePlotter("3.5.0+"));
 			} else if (PlaceHolders.getPluginVersion().startsWith("3.6")) {
 				version.addPlotter(new SimplePlotter("3.6.0+"));
 			} else {
 				version.addPlotter(new SimplePlotter("Unknown"));
-			}
+			}*/
 			metrics.start();
-		} catch (Exception ex) {
-			Bukkit.getLogger().log(Level.INFO, "[Metrics] " + ex.getMessage());
+		} catch (Exception e) {
+			Bukkit.getLogger().log(Level.INFO, "[Metrics] " + e.getMessage());
 		}
 	}
 

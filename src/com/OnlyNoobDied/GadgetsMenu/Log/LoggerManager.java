@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 
 public class LoggerManager {
 
-	public void consoleMessage(Object... messages) {
+	public static void consoleMessage(Object... messages) {
 		if (messages.length == 0) {
 			Bukkit.getServer().getLogger().log(Level.INFO, prefix() + "", new Throwable().getStackTrace());
 		}
@@ -14,8 +14,8 @@ public class LoggerManager {
 			Bukkit.getServer().getConsoleSender().sendMessage(prefix() + object.toString());
 		}
 	}
-	
-	public void info(Object... messages) {
+
+	public static void info(Object... messages) {
 		if (messages.length == 0) {
 			Bukkit.getServer().getLogger().log(Level.INFO, prefix() + "", new Throwable().getStackTrace());
 		}
@@ -25,7 +25,7 @@ public class LoggerManager {
 		}
 	}
 
-	public void severe(Object... messages) {
+	public static void severe(Object... messages) {
 		if (messages.length == 0) {
 			Bukkit.getServer().getLogger().log(Level.SEVERE, prefix() + "", new Throwable().getStackTrace());
 		}
@@ -35,7 +35,7 @@ public class LoggerManager {
 		}
 	}
 
-	public void warn(Object... messages) {
+	public static void warn(Object... messages) {
 		if (messages.length == 0) {
 			Bukkit.getServer().getLogger().log(Level.WARNING, prefix() + "", new Throwable().getStackTrace());
 		}
@@ -45,7 +45,7 @@ public class LoggerManager {
 		}
 	}
 
-	private String prefix() {
+	private static String prefix() {
 		return "[GadgetsMenu] ";
 	}
 }

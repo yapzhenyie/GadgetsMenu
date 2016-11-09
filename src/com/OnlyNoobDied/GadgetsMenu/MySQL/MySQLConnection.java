@@ -37,7 +37,8 @@ public class MySQLConnection {
 					"jdbc:mysql://" + this.hostname + ":" + this.port + "/" + this.database, this.username,
 					this.password);
 		} catch (SQLException | ClassNotFoundException e) {
-			new LoggerManager().consoleMessage(MessageType.FAILED_TO_GET_DATA.getFormatMessage());
+			new LoggerManager();
+			LoggerManager.consoleMessage(MessageType.FAILED_TO_GET_DATA.getFormatMessage());
 			e.printStackTrace();
 		}
 		return this.connection;
@@ -47,7 +48,8 @@ public class MySQLConnection {
 		try {
 			return (this.connection != null) && (!this.connection.isClosed());
 		} catch (SQLException e) {
-			new LoggerManager().consoleMessage(MessageType.FAILED_TO_CONNECT_DATEBASE.getFormatMessage());
+			new LoggerManager();
+			LoggerManager.consoleMessage(MessageType.FAILED_TO_CONNECT_DATEBASE.getFormatMessage());
 			e.printStackTrace();
 		}
 		return false;
@@ -64,7 +66,8 @@ public class MySQLConnection {
 		try {
 			this.connection.close();
 		} catch (SQLException e) {
-			new LoggerManager().consoleMessage(MessageType.FAILED_TO_CONNECT_DATEBASE.getFormatMessage());
+			new LoggerManager();
+			LoggerManager.consoleMessage(MessageType.FAILED_TO_CONNECT_DATEBASE.getFormatMessage());
 			e.printStackTrace();
 			;
 		}
