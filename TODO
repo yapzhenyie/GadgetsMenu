@@ -1,5 +1,4 @@
-items:
-  can be found: true
+
 
 bug:
  check (onlineplayers)
@@ -8,7 +7,6 @@ bug:
  if(isDisabledWorlds) return;
  
  add more hats, included spain hat.
- add auto downloader when minor update
 
 Cosmetics:
  mounts
