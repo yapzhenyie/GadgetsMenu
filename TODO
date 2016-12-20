@@ -1,7 +1,5 @@
 
 
-bug:
- check (onlineplayers)
  
  listeners:
  if(isDisabledWorlds) return;
