@@ -1,43 +1,41 @@
 name: GadgetsMenu
 main: com.OnlyNoobDied.GadgetsMenu.GadgetsMenu
-version: 3.5.7
-auther: OnlyNoobDied, YapZhenYie
-softdepend: [LibsDisguises]
+version: 3.6.0
+author: OnlyNoobDied, YapZhenYie
+softdepend: [LibsDisguises, PlaceholderAPI, Vault, PlayerPoints]
 description: Amazing hub perks for Donor.
 website: http://bit.ly/GadgetsMenu-wiki
 commands:
-  menu:
+  gadgetsmenu:
     description: GadgetsMenu Main command.
-    aliases: [gmenu, gadgetsmenu]
+    aliases: [gmenu]
+    usage: /<command>
+  mysteryboxes:
+    description: GadgetsMenu Mystery Box command.
+    aliases: [mysterybox]
+    usage: /<command>
+  mysterydust:
+    description: GadgetsMenu Mystery Dust command.
+    aliases: [dust]
     usage: /<command>
 permissions:
   gadgetsmenu.*:
     default: op
     children:
+      - gadgetsmenu.cosmetics.*
       - gadgetsmenu.commands.*
-      - gadgetsmenu.hats.*
-      - gadgetsmenu.particles.*
-      - gadgetsmenu.particletypes.*
-      - gadgetsmenu.wardrobe.*
-      - gadgetsmenu.discoarmor.*
-      - gadgetsmenu.gadgets.*
-      - gadgetsmenu.pets.*
-      - gadgetsmenu.morphs.*
-      - gadgetsmenu.banners.*
-      - gadgetsmenu.emotes.*
   gadgetsmenu.cosmetics.*:
     default: op
     children:
       - gadgetsmenu.hats.*
       - gadgetsmenu.particles.*
-      - gadgetsmenu.particletypes.*
-      - gadgetsmenu.wardrobe.*
-      - gadgetsmenu.discoarmor.*
+      - gadgetsmenu.suits.*
       - gadgetsmenu.gadgets.*
       - gadgetsmenu.pets.*
       - gadgetsmenu.morphs.*
       - gadgetsmenu.banners.*
       - gadgetsmenu.emotes.*
+      - gadgetsmenu.cloaks.*
   gadgetsmenu.commands.*:
     default: op
     description: Let a player to use all GadgetsMenu commands.
@@ -45,15 +43,19 @@ permissions:
       - gadgetsmenu.commands.about
       - gadgetsmenu.commands.admin
       - gadgetsmenu.commands.checkupdate
-      - gadgetsmenu.commands.addcredits
-      - gadgetsmenu.commands.checkcredits
-      - gadgetsmenu.commands.paycredits
-      - gadgetsmenu.commands.removecredits
-      - gadgetsmenu.commands.setcredits
       - gadgetsmenu.commands.help
       - gadgetsmenu.commands.namepet
       - gadgetsmenu.commands.permission
       - gadgetsmenu.commands.reload
+      - gadgetsmenu.commands.reset
+      - gadgetsmenu.mysterydust.add
+      - gadgetsmenu.mysterydust.check
+      - gadgetsmenu.mysterydust.pay
+      - gadgetsmenu.mysterydust.remove
+      - gadgetsmenu.mysterydust.set
+      - gadgetsmenu.mysterybox.give
+      - gadgetsmenu.mysterybox.giveall
+      - gadgetsmenu.mysterybox.mode
       - gadgetsmenu.cooldown.bypass
   gadgetsmenu.hats.*:
     default: op
@@ -128,6 +130,8 @@ permissions:
       - gadgetsmenu.hats.number_7
       - gadgetsmenu.hats.number_8
       - gadgetsmenu.hats.number_9
+      - gadgetsmenu.hats.symbol_plus
+      - gadgetsmenu.hats.symbol_poundkey
       - gadgetsmenu.hats.symbol_question
       - gadgetsmenu.hats.symbol_exclamation
       - gadgetsmenu.hats.blaze
@@ -166,7 +170,6 @@ permissions:
       - gadgetsmenu.hats.penguin
       - gadgetsmenu.hats.elephant
       - gadgetsmenu.hats.astronaut
-      - gadgetsmenu.hats.clown
       - gadgetsmenu.hats.otter
       - gadgetsmenu.hats.mummy
       - gadgetsmenu.hats.orc
@@ -190,11 +193,11 @@ permissions:
       - gadgetsmenu.hats.gorilla
       - gadgetsmenu.hats.snowman
       - gadgetsmenu.hats.reindeer
+      - gadgetsmenu.hats.shulker
   gadgetsmenu.particles.*:
     default: op
     description: Let a player to use all Particles.
     children:
-      - gadgetsmenu.particletypes.*
       - gadgetsmenu.particles.watersplash
       - gadgetsmenu.particles.dripwater
       - gadgetsmenu.particles.driplava
@@ -215,96 +218,34 @@ permissions:
       - gadgetsmenu.particles.heart
       - gadgetsmenu.particles.fireworkspark
       - gadgetsmenu.particles.smoke
-  gadgetsmenu.particletypes.*:
+  gadgetsmenu.suits.*:
     default: op
-    description: Let a player to use all Particle Types.
-      - gadgetsmenu.particletypes.halo
-      - gadgetsmenu.particletypes.random
-      - gadgetsmenu.particletypes.feet
-      - gadgetsmenu.particletypes.circle
-      - gadgetsmenu.particletypes.star
-      - gadgetsmenu.particletypes.helix
-      - gadgetsmenu.particletypes.wings
-  gadgetsmenu.wardrobe.*:
-    default: op
-    description: Let a player to use all Wardrobe.
+    description: Let a player to use all Suits.
     children:
-      - gadgetsmenu.wardrobe.aqua.helmet
-      - gadgetsmenu.wardrobe.black.helmet
-      - gadgetsmenu.wardrobe.blue.helmet
-      - gadgetsmenu.wardrobe.fuchsia.helmet
-      - gadgetsmenu.wardrobe.gray.helmet
-      - gadgetsmenu.wardrobe.green.helmet
-      - gadgetsmenu.wardrobe.lime.helmet
-      - gadgetsmenu.wardrobe.maroon.helmet
-      - gadgetsmenu.wardrobe.navy.helmet
-      - gadgetsmenu.wardrobe.olive.helmet
-      - gadgetsmenu.wardrobe.orange.helmet
-      - gadgetsmenu.wardrobe.purple.helmet
-      - gadgetsmenu.wardrobe.red.helmet
-      - gadgetsmenu.wardrobe.silver.helmet
-      - gadgetsmenu.wardrobe.teal.helmet
-      - gadgetsmenu.wardrobe.white.helmet
-      - gadgetsmenu.wardrobe.yellow.helmet
-      - gadgetsmenu.wardrobe.aqua.chestplate
-      - gadgetsmenu.wardrobe.black.chestplate
-      - gadgetsmenu.wardrobe.blue.chestplate
-      - gadgetsmenu.wardrobe.fuchsia.chestplate
-      - gadgetsmenu.wardrobe.gray.chestplate
-      - gadgetsmenu.wardrobe.green.chestplate
-      - gadgetsmenu.wardrobe.lime.chestplate
-      - gadgetsmenu.wardrobe.maroon.chestplate
-      - gadgetsmenu.wardrobe.navy.chestplate
-      - gadgetsmenu.wardrobe.olive.chestplate
-      - gadgetsmenu.wardrobe.orange.chestplate
-      - gadgetsmenu.wardrobe.purple.chestplate
-      - gadgetsmenu.wardrobe.red.chestplate
-      - gadgetsmenu.wardrobe.silver.chestplate
-      - gadgetsmenu.wardrobe.teal.chestplate
-      - gadgetsmenu.wardrobe.white.chestplate
-      - gadgetsmenu.wardrobe.yellow.chestplate
-      - gadgetsmenu.wardrobe.aqua.leggings
-      - gadgetsmenu.wardrobe.black.leggings
-      - gadgetsmenu.wardrobe.blue.leggings
-      - gadgetsmenu.wardrobe.fuchsia.leggings
-      - gadgetsmenu.wardrobe.gray.leggings
-      - gadgetsmenu.wardrobe.green.leggings
-      - gadgetsmenu.wardrobe.lime.leggings
-      - gadgetsmenu.wardrobe.maroon.leggings
-      - gadgetsmenu.wardrobe.navy.leggings
-      - gadgetsmenu.wardrobe.olive.leggings
-      - gadgetsmenu.wardrobe.orange.leggings
-      - gadgetsmenu.wardrobe.purple.leggings
-      - gadgetsmenu.wardrobe.red.leggings
-      - gadgetsmenu.wardrobe.silver.leggings
-      - gadgetsmenu.wardrobe.teal.leggings
-      - gadgetsmenu.wardrobe.white.leggings
-      - gadgetsmenu.wardrobe.yellow.leggings
-      - gadgetsmenu.wardrobe.aqua.boots
-      - gadgetsmenu.wardrobe.black.boots
-      - gadgetsmenu.wardrobe.blue.boots
-      - gadgetsmenu.wardrobe.fuchsia.boots
-      - gadgetsmenu.wardrobe.gray.boots
-      - gadgetsmenu.wardrobe.green.boots
-      - gadgetsmenu.wardrobe.lime.boots
-      - gadgetsmenu.wardrobe.maroon.boots
-      - gadgetsmenu.wardrobe.navy.boots
-      - gadgetsmenu.wardrobe.olive.boots
-      - gadgetsmenu.wardrobe.orange.boots
-      - gadgetsmenu.wardrobe.purple.boots
-      - gadgetsmenu.wardrobe.red.boots
-      - gadgetsmenu.wardrobe.silver.boots
-      - gadgetsmenu.wardrobe.teal.boots
-      - gadgetsmenu.wardrobe.white.boots
-      - gadgetsmenu.wardrobe.yellow.boots
-  gadgetsmenu.discoarmor.*:
-    default: op
-    description: Let a player to use all DiscoArmor.
-    children:
-      - gadgetsmenu.discoarmor.helmet
-      - gadgetsmenu.discoarmor.chestplate
-      - gadgetsmenu.discoarmor.leggings
-      - gadgetsmenu.discoarmor.boots
+      gadgetsmenu.suits.frog.*:
+        children:
+          - gadgetsmenu.suits.frog.helmet
+          - gadgetsmenu.suits.frog.chestplate
+          - gadgetsmenu.suits.frog.leggings
+          - gadgetsmenu.suits.frog.boots
+      gadgetsmenu.suits.speedster.*:
+        children:
+          - gadgetsmenu.suits.speedster.helmet
+          - gadgetsmenu.suits.speedster.chestplate
+          - gadgetsmenu.suits.speedster.leggings
+          - gadgetsmenu.suits.speedster.boots
+      gadgetsmenu.suits.ghostly.*:
+        children:
+          - gadgetsmenu.suits.ghostly.helmet
+          - gadgetsmenu.suits.ghostly.chestplate
+          - gadgetsmenu.suits.ghostly.leggings
+          - gadgetsmenu.suits.ghostly.boots
+      gadgetsmenu.suits.disco.*:
+        children:
+          - gadgetsmenu.suits.disco.helmet
+          - gadgetsmenu.suits.disco.chestplate
+          - gadgetsmenu.suits.disco.leggings
+          - gadgetsmenu.suits.disco.boots
   gadgetsmenu.gadgets.*:
     default: op
     description: Let a player to use all gadgets.
@@ -332,108 +273,158 @@ permissions:
       - gadgetsmenu.gadgets.crytube
       - gadgetsmenu.gadgets.diamondshower
       - gadgetsmenu.gadgets.dracula
+      - gadgetsmenu.gadgets.trampoline
   gadgetsmenu.pets.*:
     default: op
     description: Let a player to use all Pets.
     children:
-      - gadgetsmenu.pets.cow
-      - gadgetsmenu.pets.babycow
-      - gadgetsmenu.pets.mushroomcow
-      - gadgetsmenu.pets.babymushroomcow
-      - gadgetsmenu.pets.chicken
-      - gadgetsmenu.pets.babychicken
-      - gadgetsmenu.pets.wolf
-      - gadgetsmenu.pets.babywolf
-      - gadgetsmenu.pets.pig
-      - gadgetsmenu.pets.babypig
-      - gadgetsmenu.pets.pigzombie
-      - gadgetsmenu.pets.babypigzombie
-      - gadgetsmenu.pets.silverfish
-      - gadgetsmenu.pets.zombie
-      - gadgetsmenu.pets.babyzombie
-      - gadgetsmenu.pets.blackcat
-      - gadgetsmenu.pets.babyblackcat
-      - gadgetsmenu.pets.redcat
-      - gadgetsmenu.pets.babyredcat
-      - gadgetsmenu.pets.siamesecat
-      - gadgetsmenu.pets.babysiamesecat
-      - gadgetsmenu.pets.wildocelot
-      - gadgetsmenu.pets.babywildocelot
-      - gadgetsmenu.pets.blacksheep
-      - gadgetsmenu.pets.babyblacksheep
-      - gadgetsmenu.pets.bluesheep
-      - gadgetsmenu.pets.babybluesheep
-      - gadgetsmenu.pets.brownsheep
-      - gadgetsmenu.pets.babybrownsheep
-      - gadgetsmenu.pets.cyansheep
-      - gadgetsmenu.pets.babycyansheep
-      - gadgetsmenu.pets.graysheep
-      - gadgetsmenu.pets.babygraysheep
-      - gadgetsmenu.pets.greensheep
-      - gadgetsmenu.pets.babygreensheep
-      - gadgetsmenu.pets.lightbluesheep
-      - gadgetsmenu.pets.babylightbluesheep
-      - gadgetsmenu.pets.limesheep
-      - gadgetsmenu.pets.babylimesheep
-      - gadgetsmenu.pets.magentasheep
-      - gadgetsmenu.pets.babymagentasheep
-      - gadgetsmenu.pets.orangesheep
-      - gadgetsmenu.pets.babyorangesheep
-      - gadgetsmenu.pets.pinksheep
-      - gadgetsmenu.pets.babypinksheep
-      - gadgetsmenu.pets.purplesheep
-      - gadgetsmenu.pets.babypurplesheep
-      - gadgetsmenu.pets.redsheep
-      - gadgetsmenu.pets.babyredsheep
-      - gadgetsmenu.pets.silversheep
-      - gadgetsmenu.pets.babysilversheep
-      - gadgetsmenu.pets.whitesheep
-      - gadgetsmenu.pets.babywhitesheep
-      - gadgetsmenu.pets.yellowsheep
-      - gadgetsmenu.pets.babyyellowsheep
-      - gadgetsmenu.pets.blackhorse
-      - gadgetsmenu.pets.babyblackhorse
-      - gadgetsmenu.pets.brownhorse
-      - gadgetsmenu.pets.babybrownhorse
-      - gadgetsmenu.pets.chestnuthorse
-      - gadgetsmenu.pets.babychestnuthorse
-      - gadgetsmenu.pets.creamyhorse
-      - gadgetsmenu.pets.babycreamyhorse
-      - gadgetsmenu.pets.darkbrownhorse
-      - gadgetsmenu.pets.babydarkbrownhorse
-      - gadgetsmenu.pets.grayhorse
-      - gadgetsmenu.pets.babygrayhorse
-      - gadgetsmenu.pets.whitehorse
-      - gadgetsmenu.pets.babywhitehorse
-      - gadgetsmenu.pets.donkey
-      - gadgetsmenu.pets.babydonkey
-      - gadgetsmenu.pets.mule
-      - gadgetsmenu.pets.babymule
-      - gadgetsmenu.pets.skeletonhorse
-      - gadgetsmenu.pets.babyskeletonhorse
-      - gadgetsmenu.pets.undeadhorse
-      - gadgetsmenu.pets.babyundeadhorse
-      - gadgetsmenu.pets.blacksmithvillager
-      - gadgetsmenu.pets.babyblacksmithvillager
-      - gadgetsmenu.pets.butchervillager
-      - gadgetsmenu.pets.babybutchervillager
-      - gadgetsmenu.pets.farmervillager
-      - gadgetsmenu.pets.babyfarmervillager
-      - gadgetsmenu.pets.librarianvillager
-      - gadgetsmenu.pets.babylibrarianvillager
-      - gadgetsmenu.pets.priestvillager
-      - gadgetsmenu.pets.babypriestvillager
-      - gadgetsmenu.pets.zombievillager
-      - gadgetsmenu.pets.babyzombievillager
-      - gadgetsmenu.pets.witch
-      - gadgetsmenu.pets.spider
-      - gadgetsmenu.pets.cavespider
-      - gadgetsmenu.pets.skeleton
-      - gadgetsmenu.pets.witherskeleton
-      - gadgetsmenu.pets.blaze
-      - gadgetsmenu.pets.creeper
-      - gadgetsmenu.pets.poweredcreeper
-      - gadgetsmenu.pets.golem
+      gadgetsmenu.pets.cow.*:
+        children:
+          - gadgetsmenu.pets.cow
+          - gadgetsmenu.pets.babycow
+          - gadgetsmenu.pets.mushroomcow
+          - gadgetsmenu.pets.babymushroomcow
+      gadgetsmenu.pets.chicken.*:
+        children:
+          - gadgetsmenu.pets.chicken
+          - gadgetsmenu.pets.babychicken
+      gadgetsmenu.pets.wolf.*:
+        children:
+          - gadgetsmenu.pets.wolf
+          - gadgetsmenu.pets.babywolf
+      gadgetsmenu.pets.pig.*:
+        children:
+          - gadgetsmenu.pets.pig
+          - gadgetsmenu.pets.babypig
+          - gadgetsmenu.pets.pigzombie
+          - gadgetsmenu.pets.babypigzombie
+      gadgetsmenu.pets.silverfish.*:
+        children:
+          - gadgetsmenu.pets.silverfish
+      gadgetsmenu.pets.endermite.*:
+        children:
+          - gadgetsmenu.pets.endermite
+      gadgetsmenu.pets.zombie.*:
+        children:
+          - gadgetsmenu.pets.zombie
+          - gadgetsmenu.pets.babyzombie
+          - gadgetsmenu.pets.redlittlehelper
+          - gadgetsmenu.pets.greenlittlehelper
+      gadgetsmenu.pets.cat.*:
+        children:
+          - gadgetsmenu.pets.blackcat
+          - gadgetsmenu.pets.babyblackcat
+          - gadgetsmenu.pets.redcat
+          - gadgetsmenu.pets.babyredcat
+          - gadgetsmenu.pets.siamesecat
+          - gadgetsmenu.pets.babysiamesecat
+          - gadgetsmenu.pets.wildocelot
+          - gadgetsmenu.pets.babywildocelot
+      gadgetsmenu.pets.rabbit.*:
+        children:
+          - gadgetsmenu.pets.blackrabbit
+          - gadgetsmenu.pets.babyblackrabbit
+          - gadgetsmenu.pets.blackandwhiterabbit
+          - gadgetsmenu.pets.babyblackandwhiterabbit
+          - gadgetsmenu.pets.brownrabbit
+          - gadgetsmenu.pets.babybrownrabbit
+          - gadgetsmenu.pets.goldrabbit
+          - gadgetsmenu.pets.babygoldrabbit
+          - gadgetsmenu.pets.saltandpepperrabbit
+          - gadgetsmenu.pets.babysaltandpepperrabbit
+          - gadgetsmenu.pets.whiterabbit
+          - gadgetsmenu.pets.babywhiterabbit
+      gadgetsmenu.pets.sheep.*:
+        children:
+          - gadgetsmenu.pets.blacksheep
+          - gadgetsmenu.pets.babyblacksheep
+          - gadgetsmenu.pets.bluesheep
+          - gadgetsmenu.pets.babybluesheep
+          - gadgetsmenu.pets.brownsheep
+          - gadgetsmenu.pets.babybrownsheep
+          - gadgetsmenu.pets.cyansheep
+          - gadgetsmenu.pets.babycyansheep
+          - gadgetsmenu.pets.graysheep
+          - gadgetsmenu.pets.babygraysheep
+          - gadgetsmenu.pets.greensheep
+          - gadgetsmenu.pets.babygreensheep
+          - gadgetsmenu.pets.lightbluesheep
+          - gadgetsmenu.pets.babylightbluesheep
+          - gadgetsmenu.pets.limesheep
+          - gadgetsmenu.pets.babylimesheep
+          - gadgetsmenu.pets.magentasheep
+          - gadgetsmenu.pets.babymagentasheep
+          - gadgetsmenu.pets.orangesheep
+          - gadgetsmenu.pets.babyorangesheep
+          - gadgetsmenu.pets.pinksheep
+          - gadgetsmenu.pets.babypinksheep
+          - gadgetsmenu.pets.purplesheep
+          - gadgetsmenu.pets.babypurplesheep
+          - gadgetsmenu.pets.redsheep
+          - gadgetsmenu.pets.babyredsheep
+          - gadgetsmenu.pets.silversheep
+          - gadgetsmenu.pets.babysilversheep
+          - gadgetsmenu.pets.whitesheep
+          - gadgetsmenu.pets.babywhitesheep
+          - gadgetsmenu.pets.yellowsheep
+          - gadgetsmenu.pets.babyyellowsheep
+      gadgetsmenu.pets.horse.*:
+        children:
+          - gadgetsmenu.pets.blackhorse
+          - gadgetsmenu.pets.babyblackhorse
+          - gadgetsmenu.pets.brownhorse
+          - gadgetsmenu.pets.babybrownhorse
+          - gadgetsmenu.pets.chestnuthorse
+          - gadgetsmenu.pets.babychestnuthorse
+          - gadgetsmenu.pets.creamyhorse
+          - gadgetsmenu.pets.babycreamyhorse
+          - gadgetsmenu.pets.darkbrownhorse
+          - gadgetsmenu.pets.babydarkbrownhorse
+          - gadgetsmenu.pets.grayhorse
+          - gadgetsmenu.pets.babygrayhorse
+          - gadgetsmenu.pets.whitehorse
+          - gadgetsmenu.pets.babywhitehorse
+          - gadgetsmenu.pets.donkey
+          - gadgetsmenu.pets.babydonkey
+          - gadgetsmenu.pets.mule
+          - gadgetsmenu.pets.babymule
+          - gadgetsmenu.pets.skeletonhorse
+          - gadgetsmenu.pets.babyskeletonhorse
+          - gadgetsmenu.pets.undeadhorse
+          - gadgetsmenu.pets.babyundeadhorse
+      gadgetsmenu.pets.villager.*:
+        children:
+          - gadgetsmenu.pets.blacksmithvillager
+          - gadgetsmenu.pets.babyblacksmithvillager
+          - gadgetsmenu.pets.butchervillager
+          - gadgetsmenu.pets.babybutchervillager
+          - gadgetsmenu.pets.farmervillager
+          - gadgetsmenu.pets.babyfarmervillager
+          - gadgetsmenu.pets.librarianvillager
+          - gadgetsmenu.pets.babylibrarianvillager
+          - gadgetsmenu.pets.priestvillager
+          - gadgetsmenu.pets.babypriestvillager
+          - gadgetsmenu.pets.zombievillager
+          - gadgetsmenu.pets.babyzombievillager
+          - gadgetsmenu.pets.witch
+      gadgetsmenu.pets.spider.*:
+        children:
+          - gadgetsmenu.pets.spider
+          - gadgetsmenu.pets.cavespider
+      gadgetsmenu.pets.skeleton.*:
+        children:
+          - gadgetsmenu.pets.skeleton
+          - gadgetsmenu.pets.witherskeleton
+      gadgetsmenu.pets.blaze.*:
+        children:
+          - gadgetsmenu.pets.blaze
+      gadgetsmenu.pets.creeper.*:
+        children:
+          - gadgetsmenu.pets.creeper
+          - gadgetsmenu.pets.poweredcreeper
+      gadgetsmenu.pets.golem.*:
+        children:
+          - gadgetsmenu.pets.golem    
   gadgetsmenu.morphs.*:
     default: op
     description: Let a player to use all Morphs.
@@ -466,6 +457,8 @@ permissions:
       - gadgetsmenu.banners.dino
       - gadgetsmenu.banners.redpool
       - gadgetsmenu.banners.pengu
+      - gadgetsmenu.banners.pug
+      - gadgetsmenu.banners.skullking
   gadgetsmenu.emotes.*:
     default: op
     description: Let a player to use all Emotes.
@@ -476,3 +469,14 @@ permissions:
       - gadgetsmenu.emotes.grin
       - gadgetsmenu.emotes.surprised
       - gadgetsmenu.emotes.cry
+  gadgetsmenu.cloaks.*:
+    default: op
+    description: Let a player to use all Emotes.
+    children:
+      - gadgetsmenu.cloaks.superhero
+      - gadgetsmenu.cloaks.mystical
+      - gadgetsmenu.cloaks.firewings
+      - gadgetsmenu.cloaks.vampirewings
+      - gadgetsmenu.cloaks.icewings
+      - gadgetsmenu.cloaks.shaman
+      - gadgetsmenu.cloaks.firerings
