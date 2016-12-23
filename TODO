@@ -1,10 +1,5 @@
-
-
- 
  listeners:
  if(isDisabledWorlds) return;
- 
- add more hats, included spain hat.
 
 Cosmetics:
  mounts
