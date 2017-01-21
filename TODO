@@ -1,7 +1,4 @@
- listeners:
- if(isDisabledWorlds) return;
+
 
 Cosmetics:
  mounts
-
-/menu select gadget <gadget_name>
