@@ -1,21 +1,21 @@
 name: GadgetsMenu
-main: com.OnlyNoobDied.GadgetsMenu.GadgetsMenu
-version: 3.6.0
-author: OnlyNoobDied, YapZhenYie
-softdepend: [LibsDisguises, PlaceholderAPI, Vault, PlayerPoints]
+main: com.yapzhenyie.GadgetsMenu.GadgetsMenu
+version: 4.0.11
+author: yapzhenyie
+softdepend: [WorldGuard, LibsDisguises, iDisguise, PlaceholderAPI, Vault, PlayerPoints, CoinsAPINB]
 description: Amazing hub perks for Donor.
 website: http://bit.ly/GadgetsMenu-wiki
 commands:
   gadgetsmenu:
-    description: GadgetsMenu Main command.
+    description: GadgetsMenu main command.
     aliases: [gmenu]
     usage: /<command>
-  mysteryboxes:
-    description: GadgetsMenu Mystery Box command.
-    aliases: [mysterybox]
+  gmysteryboxes:
+    description: GadgetsMenu mystery boxes command.
+    aliases: [gmysterybox, gmb]
     usage: /<command>
   mysterydust:
-    description: GadgetsMenu Mystery Dust command.
+    description: GadgetsMenu mystery dust command.
     aliases: [dust]
     usage: /<command>
 permissions:
@@ -24,6 +24,8 @@ permissions:
     children:
       - gadgetsmenu.cosmetics.*
       - gadgetsmenu.commands.*
+      - gadgetsmenu.menuselector
+      - gadgetsmenu.cooldown.bypass
   gadgetsmenu.cosmetics.*:
     default: op
     children:
@@ -43,6 +45,7 @@ permissions:
       - gadgetsmenu.commands.about
       - gadgetsmenu.commands.admin
       - gadgetsmenu.commands.checkupdate
+      - gadgetsmenu.commands.equip
       - gadgetsmenu.commands.help
       - gadgetsmenu.commands.namepet
       - gadgetsmenu.commands.permission
@@ -53,10 +56,32 @@ permissions:
       - gadgetsmenu.mysterydust.pay
       - gadgetsmenu.mysterydust.remove
       - gadgetsmenu.mysterydust.set
-      - gadgetsmenu.mysterybox.give
-      - gadgetsmenu.mysterybox.giveall
-      - gadgetsmenu.mysterybox.mode
-      - gadgetsmenu.cooldown.bypass
+      - gadgetsmenu.mysteryboxes.gift
+      - gadgetsmenu.mysteryboxes.give
+      - gadgetsmenu.mysteryboxes.giveall
+      - gadgetsmenu.mysteryboxes.mode
+  gadgetsmenu.bypassregion.*:
+    default: op
+    description: Allows a player to use specified cosmetic in region which is disabled that cosmetic.
+    children:
+      - gadgetsmenu.bypassregion.hat
+      - gadgetsmenu.bypassregion.particle
+      - gadgetsmenu.bypassregion.suit
+      - gadgetsmenu.bypassregion.gadget
+      - gadgetsmenu.bypassregion.pet
+      - gadgetsmenu.bypassregion.morph
+      - gadgetsmenu.bypassregion.banner
+      - gadgetsmenu.bypassregion.emote
+      - gadgetsmenu.bypassregion.cloak
+  gadgetsmenu.mysteryboxes.open.*:
+    default: op
+    description: Allows a player to open all mystery boxes.
+    children:
+      - gadgetsmenu.mysteryboxes.open.1
+      - gadgetsmenu.mysteryboxes.open.2
+      - gadgetsmenu.mysteryboxes.open.3
+      - gadgetsmenu.mysteryboxes.open.4
+      - gadgetsmenu.mysteryboxes.open.5
   gadgetsmenu.hats.*:
     default: op
     description: Let a player to use all Hats.
@@ -94,6 +119,7 @@ permissions:
       - gadgetsmenu.hats.germany
       - gadgetsmenu.hats.singapore
       - gadgetsmenu.hats.france
+      - gadgetsmenu.hats.spain
       - gadgetsmenu.hats.letter_a
       - gadgetsmenu.hats.letter_b
       - gadgetsmenu.hats.letter_c
@@ -228,6 +254,12 @@ permissions:
           - gadgetsmenu.suits.frog.chestplate
           - gadgetsmenu.suits.frog.leggings
           - gadgetsmenu.suits.frog.boots
+      gadgetsmenu.suits.ninja.*:
+        children:
+          - gadgetsmenu.suits.ninja.helmet
+          - gadgetsmenu.suits.ninja.chestplate
+          - gadgetsmenu.suits.ninja.leggings
+          - gadgetsmenu.suits.ninja.boots
       gadgetsmenu.suits.speedster.*:
         children:
           - gadgetsmenu.suits.speedster.helmet
@@ -246,34 +278,105 @@ permissions:
           - gadgetsmenu.suits.disco.chestplate
           - gadgetsmenu.suits.disco.leggings
           - gadgetsmenu.suits.disco.boots
+      gadgetsmenu.suits.mermaid.*:
+        children:
+          - gadgetsmenu.suits.mermaid.helmet
+          - gadgetsmenu.suits.mermaid.chestplate
+          - gadgetsmenu.suits.mermaid.leggings
+          - gadgetsmenu.suits.mermaid.boots
+      gadgetsmenu.suits.spooderman.*:
+        children:
+          - gadgetsmenu.suits.spooderman.helmet
+          - gadgetsmenu.suits.spooderman.chestplate
+          - gadgetsmenu.suits.spooderman.leggings
+          - gadgetsmenu.suits.spooderman.boots
+      gadgetsmenu.suits.warrior.*:
+        children:
+          - gadgetsmenu.suits.warrior.helmet
+          - gadgetsmenu.suits.warrior.chestplate
+          - gadgetsmenu.suits.warrior.leggings
+          - gadgetsmenu.suits.warrior.boots
+      gadgetsmenu.suits.necromancer.*:
+        children:
+          - gadgetsmenu.suits.necromancer.helmet
+          - gadgetsmenu.suits.necromancer.chestplate
+          - gadgetsmenu.suits.necromancer.leggings
+          - gadgetsmenu.suits.necromancer.boots
+      gadgetsmenu.suits.thor.*:
+        children:
+          - gadgetsmenu.suits.thor.helmet
+          - gadgetsmenu.suits.thor.chestplate
+          - gadgetsmenu.suits.thor.leggings
+          - gadgetsmenu.suits.thor.boots
+      gadgetsmenu.suits.baker.*:
+        children:
+          - gadgetsmenu.suits.baker.helmet
+          - gadgetsmenu.suits.baker.chestplate
+          - gadgetsmenu.suits.baker.leggings
+          - gadgetsmenu.suits.baker.boots
+      gadgetsmenu.suits.bumblebee.*:
+        children:
+          - gadgetsmenu.suits.bumblebee.helmet
+          - gadgetsmenu.suits.bumblebee.chestplate
+          - gadgetsmenu.suits.bumblebee.leggings
+          - gadgetsmenu.suits.bumblebee.boots
+      gadgetsmenu.suits.plumber.*:
+        children:
+          - gadgetsmenu.suits.plumber.helmet
+          - gadgetsmenu.suits.plumber.chestplate
+          - gadgetsmenu.suits.plumber.leggings
+          - gadgetsmenu.suits.plumber.boots
+      gadgetsmenu.suits.icewalker.*:
+        children:
+          - gadgetsmenu.suits.icewalker.helmet
+          - gadgetsmenu.suits.icewalker.chestplate
+          - gadgetsmenu.suits.icewalker.leggings
+          - gadgetsmenu.suits.icewalker.boots
+      gadgetsmenu.suits.vampire.*:
+        children:
+          - gadgetsmenu.suits.vampire.helmet
+          - gadgetsmenu.suits.vampire.chestplate
+          - gadgetsmenu.suits.vampire.leggings
+          - gadgetsmenu.suits.vampire.boots
   gadgetsmenu.gadgets.*:
     default: op
     description: Let a player to use all gadgets.
     children:
-      - gadgetsmenu.gadgets.paintballgun
-      - gadgetsmenu.gadgets.explosivebow
-      - gadgetsmenu.gadgets.batlauncher
-      - gadgetsmenu.gadgets.letitsnow
-      - gadgetsmenu.gadgets.firetrail
-      - gadgetsmenu.gadgets.partypopper
-      - gadgetsmenu.gadgets.tntfountain
-      - gadgetsmenu.gadgets.teleportstick
-      - gadgetsmenu.gadgets.melonlauncher
-      - gadgetsmenu.gadgets.painttrail
+      - gadgetsmenu.gadgets.magic9ball
+      - gadgetsmenu.gadgets.trampoline
+      - gadgetsmenu.gadgets.fortunecookie
+      - gadgetsmenu.gadgets.tetherball
+      - gadgetsmenu.gadgets.whenpigsfly
+      - gadgetsmenu.gadgets.catapult
       - gadgetsmenu.gadgets.explodingsheep
       - gadgetsmenu.gadgets.creeperastronaut
-      - gadgetsmenu.gadgets.ghosts
-      - gadgetsmenu.gadgets.poopbomb
-      - gadgetsmenu.gadgets.parachute
-      - gadgetsmenu.gadgets.discoball
-      - gadgetsmenu.gadgets.rocket
-      - gadgetsmenu.gadgets.goldfountain
-      - gadgetsmenu.gadgets.catapult
+      - gadgetsmenu.gadgets.batlauncher
       - gadgetsmenu.gadgets.cowboy
-      - gadgetsmenu.gadgets.crytube
+      - gadgetsmenu.gadgets.teleportstick
+      - gadgetsmenu.gadgets.painttrail
+      - gadgetsmenu.gadgets.firetrail
+      - gadgetsmenu.gadgets.parachute
+      - gadgetsmenu.gadgets.rocket
+      - gadgetsmenu.gadgets.letitsnow
+      - gadgetsmenu.gadgets.jukebox
+      - gadgetsmenu.gadgets.radio
+      - gadgetsmenu.gadgets.discoball
+      - gadgetsmenu.gadgets.mobgun
+      - gadgetsmenu.gadgets.railgun
+      - gadgetsmenu.gadgets.paintballgun
+      - gadgetsmenu.gadgets.explosivebow
+      - gadgetsmenu.gadgets.melonlauncher
+      - gadgetsmenu.gadgets.kookiefountain
+      - gadgetsmenu.gadgets.pyromaniac
       - gadgetsmenu.gadgets.diamondshower
+      - gadgetsmenu.gadgets.goldfountain
+      - gadgetsmenu.gadgets.kawariminojutsu
+      - gadgetsmenu.gadgets.crytube
+      - gadgetsmenu.gadgets.ghosts
+      - gadgetsmenu.gadgets.partypopper
+      - gadgetsmenu.gadgets.poopbomb
+      - gadgetsmenu.gadgets.tntfountain
       - gadgetsmenu.gadgets.dracula
-      - gadgetsmenu.gadgets.trampoline
   gadgetsmenu.pets.*:
     default: op
     description: Let a player to use all Pets.
@@ -469,6 +572,7 @@ permissions:
       - gadgetsmenu.emotes.grin
       - gadgetsmenu.emotes.surprised
       - gadgetsmenu.emotes.cry
+      - gadgetsmenu.emotes.sleepy
   gadgetsmenu.cloaks.*:
     default: op
     description: Let a player to use all Emotes.
