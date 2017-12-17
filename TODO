@@ -1,5 +1,2 @@
-Add a statement to check mysqlreconnectTask.
- If the task is running, then won't run again
-
 Cosmetics:
  mounts
