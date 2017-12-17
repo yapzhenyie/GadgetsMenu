@@ -1,8 +1,8 @@
 name: GadgetsMenu
 main: com.yapzhenyie.GadgetsMenu.GadgetsMenu
-version: 4.0.11
+version: 4.1.3
 author: yapzhenyie
-softdepend: [WorldGuard, LibsDisguises, iDisguise, PlaceholderAPI, Vault, PlayerPoints, CoinsAPINB]
+softdepend: [WorldGuard, LibsDisguises, iDisguise, PlaceholderAPI, Vault, PlayerPoints, CoinsAPINB, Coins]
 description: Amazing hub perks for Donor.
 website: http://bit.ly/GadgetsMenu-wiki
 commands:
@@ -56,10 +56,23 @@ permissions:
       - gadgetsmenu.mysterydust.pay
       - gadgetsmenu.mysterydust.remove
       - gadgetsmenu.mysterydust.set
+      - gadgetsmenu.mysteryboxes.check
       - gadgetsmenu.mysteryboxes.gift
       - gadgetsmenu.mysteryboxes.give
       - gadgetsmenu.mysteryboxes.giveall
       - gadgetsmenu.mysteryboxes.mode
+  gadgetsmenu.autoequip.*:
+    default: op
+    description: Automatic equip cosmetic item.
+    children:
+      - gadgetsmenu.autoequip.purchase
+      - gadgetsmenu.autoequip.foundloot
+  gadgetsmenu.bypassduration.*:
+    default: op
+    description: Allows a player to bypass the song duration.
+    children:
+      - gadgetsmenu.bypassduration.discoball
+      - gadgetsmenu.bypassduration.djbooth
   gadgetsmenu.bypassregion.*:
     default: op
     description: Allows a player to use specified cosmetic in region which is disabled that cosmetic.
@@ -82,6 +95,12 @@ permissions:
       - gadgetsmenu.mysteryboxes.open.3
       - gadgetsmenu.mysteryboxes.open.4
       - gadgetsmenu.mysteryboxes.open.5
+  gadgetsmenu.animations.*:
+    default: op
+    description: Allows a player to access all mystery vault animations.
+    children:
+      - gadgetsmenu.animations.none
+      - gadgetsmenu.animations.normal
   gadgetsmenu.hats.*:
     default: op
     description: Let a player to use all Hats.
@@ -377,6 +396,16 @@ permissions:
       - gadgetsmenu.gadgets.poopbomb
       - gadgetsmenu.gadgets.tntfountain
       - gadgetsmenu.gadgets.dracula
+      - gadgetsmenu.gadgets.divingboard
+      - gadgetsmenu.gadgets.flowergiver
+      - gadgetsmenu.gadgets.sandcastle
+      - gadgetsmenu.gadgets.bbqgrill
+      - gadgetsmenu.gadgets.pocketbeach
+      - gadgetsmenu.gadgets.icecreamstand
+      - gadgetsmenu.gadgets.tictactoe
+      - gadgetsmenu.gadgets.scarecrow
+      - gadgetsmenu.gadgets.teleporter
+      - gadgetsmenu.gadgets.djbooth
   gadgetsmenu.pets.*:
     default: op
     description: Let a player to use all Pets.
@@ -411,6 +440,8 @@ permissions:
         children:
           - gadgetsmenu.pets.zombie
           - gadgetsmenu.pets.babyzombie
+          - gadgetsmenu.pets.husk
+          - gadgetsmenu.pets.babyhusk
           - gadgetsmenu.pets.redlittlehelper
           - gadgetsmenu.pets.greenlittlehelper
       gadgetsmenu.pets.cat.*:
@@ -510,6 +541,9 @@ permissions:
           - gadgetsmenu.pets.zombievillager
           - gadgetsmenu.pets.babyzombievillager
           - gadgetsmenu.pets.witch
+          - gadgetsmenu.pets.evoker
+          - gadgetsmenu.pets.vindicator
+          - gadgetsmenu.pets.illusioner
       gadgetsmenu.pets.spider.*:
         children:
           - gadgetsmenu.pets.spider
@@ -518,6 +552,7 @@ permissions:
         children:
           - gadgetsmenu.pets.skeleton
           - gadgetsmenu.pets.witherskeleton
+          - gadgetsmenu.pets.strayskeleton
       gadgetsmenu.pets.blaze.*:
         children:
           - gadgetsmenu.pets.blaze
@@ -527,7 +562,24 @@ permissions:
           - gadgetsmenu.pets.poweredcreeper
       gadgetsmenu.pets.golem.*:
         children:
-          - gadgetsmenu.pets.golem    
+          - gadgetsmenu.pets.golem
+      gadgetsmenu.pets.snowman.*:
+        children:
+          - gadgetsmenu.pets.snowman
+      gadgetsmenu.pets.polarbear.*:
+        children:
+          - gadgetsmenu.pets.polarbear
+          - gadgetsmenu.pets.babypolarbear
+      gadgetsmenu.pets.llama.*:
+        children:
+          - gadgetsmenu.pets.brownllama
+          - gadgetsmenu.pets.babybrownllama
+          - gadgetsmenu.pets.creamyllama
+          - gadgetsmenu.pets.babycreamyllama
+          - gadgetsmenu.pets.grayllama
+          - gadgetsmenu.pets.babygrayllama
+          - gadgetsmenu.pets.whitellama
+          - gadgetsmenu.pets.babywhitellama
   gadgetsmenu.morphs.*:
     default: op
     description: Let a player to use all Morphs.
@@ -573,6 +625,9 @@ permissions:
       - gadgetsmenu.emotes.surprised
       - gadgetsmenu.emotes.cry
       - gadgetsmenu.emotes.sleepy
+      - gadgetsmenu.emotes.rage
+      - gadgetsmenu.emotes.frown
+      - gadgetsmenu.emotes.cheeky
   gadgetsmenu.cloaks.*:
     default: op
     description: Let a player to use all Emotes.
@@ -581,6 +636,8 @@ permissions:
       - gadgetsmenu.cloaks.mystical
       - gadgetsmenu.cloaks.firewings
       - gadgetsmenu.cloaks.vampirewings
+      - gadgetsmenu.cloaks.frosty
       - gadgetsmenu.cloaks.icewings
       - gadgetsmenu.cloaks.shaman
       - gadgetsmenu.cloaks.firerings
+      - gadgetsmenu.cloaks.scanner
