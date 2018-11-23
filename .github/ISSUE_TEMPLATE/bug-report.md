@@ -11,18 +11,18 @@ A clear and concise description of what the bug is.
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
-3. Scroll down to '....'
-4. See error
+3. See error
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
 **Further Information (please complete the following information):**
  - Server Version: [e.g. 1.13.2]
  - GadgetsMenu Version: [e.g. 4.2.4]
+ - Console stack trace if have.
 
-**Additional context**
-Add any other context about the problem here.
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Additional Information**
+Any other information that you would like to provide that may be relevant to the issue?
