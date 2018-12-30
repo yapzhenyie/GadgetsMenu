@@ -1,6 +1,9 @@
 ---
 name: Bug Report
 about: GadgetsMenu Bug or Server Incompatibility
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
@@ -18,7 +21,7 @@ A clear and concise description of what you expected to happen.
 
 **Further Information (please complete the following information):**
  - Server Version: [e.g. 1.13.2]
- - GadgetsMenu Version: [e.g. 4.2.4]
+ - GadgetsMenu Version: [e.g. 4.4.0]
  - Console stack trace if have.
 
 **Screenshots**
