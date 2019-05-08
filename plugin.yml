@@ -1,6 +1,6 @@
 name: GadgetsMenu
 main: com.yapzhenyie.GadgetsMenu.GadgetsMenu
-version: 4.1.3
+version: 4.3.12
 author: yapzhenyie
 softdepend: [WorldGuard, LibsDisguises, iDisguise, PlaceholderAPI, Vault, PlayerPoints, CoinsAPINB, Coins]
 description: Amazing hub perks for Donor.
@@ -641,3 +641,11 @@ permissions:
       - gadgetsmenu.cloaks.shaman
       - gadgetsmenu.cloaks.firerings
       - gadgetsmenu.cloaks.scanner
+  gadgetsmenu.animatedhats.*:
+    default: op
+    description: Let a player to use all Animated Hats.
+    children:
+      - gadgetsmenu.animatedhats.siren
+      - gadgetsmenu.animatedhats.sammythecookie
+      - gadgetsmenu.animatedhats.chromaslime
+      - gadgetsmenu.animatedhats.colorblock
