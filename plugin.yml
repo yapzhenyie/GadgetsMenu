@@ -1,6 +1,6 @@
 name: GadgetsMenu
 main: com.yapzhenyie.GadgetsMenu.GadgetsMenu
-version: 4.3.20
+version: 4.3.21
 author: yapzhenyie
 softdepend: [WorldGuard, LibsDisguises, iDisguise, PlaceholderAPI, Vault, PlayerPoints, CoinsAPINB, Coins]
 description: Amazing hub perks for Donor.
