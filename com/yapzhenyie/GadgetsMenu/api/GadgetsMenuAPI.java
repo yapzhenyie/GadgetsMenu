@@ -13,8 +13,8 @@ public class GadgetsMenuAPI {
 		return GadgetsMenu.getPlayerManager(player);
 	}
 
-	public static OfflinePlayerManager getOfflinePlayerManager(OfflinePlayer offlinePlayer) {
-		return new OfflinePlayerManager(offlinePlayer);
+	public static OfflinePlayerManager getOfflinePlayerManager(UUID uuid) {
+		return new OfflinePlayerManager(uuid);
 	}
 
 	public static void goBackToMainMenu(Player player) {
