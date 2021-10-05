@@ -20,8 +20,8 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **Further Information (please complete the following information):**
- - Server Version: [e.g. 1.13.2]
- - GadgetsMenu Version: [e.g. 4.4.0]
+ - Server Version: [e.g. Spigot 1.17.1, Paper 1.17.1]
+ - GadgetsMenu Version: [e.g. 4.5.0]
  - Console stack trace if have.
 
 **Screenshots**
