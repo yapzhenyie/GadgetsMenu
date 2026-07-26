@@ -1,6 +1,7 @@
 package com.yapzhenyie.GadgetsMenu.api;
 
-import org.bukkit.OfflinePlayer;
+import java.util.UUID;
+
 import org.bukkit.entity.Player;
 
 import com.yapzhenyie.GadgetsMenu.GadgetsMenu;
